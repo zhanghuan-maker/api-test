@@ -17,7 +17,6 @@ import jsonpath
 from core.functions import *
 from db_operate.mysql_operate import Operate
 from conf.settings import *
-import os
 from runCase import *
 import threading
 
@@ -26,10 +25,11 @@ import threading
 class Test(unittest.TestCase):
 
     api_data=read_excel(Case)
-    #全局变量池
+    # 全局变量池
     saves = {}
+    saves['IMAGE_PATH'] = IMAGE_PATH
     mongo_db_connect = Operate('IOT')
-    saves['IMAGE_PATH']=IMAGE_PATH
+
 
     #识别${key}的正则表达式
     EXPR = '\$\{(.*?)\}'
@@ -274,6 +274,8 @@ class Test(unittest.TestCase):
     @data(*api_data)
     @unpack
     def test_(self,descrption, url, method, headers, cookies, params, body, file, verify, saves, dbtype, dbname, setup_sql, teardown_sql,THREAD_NUM,ONE_WORKER_NUM,LOOP_SLEEP):
+
+
 
         if THREAD_NUM=='':
             THREAD_NUM=1
