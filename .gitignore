@@ -18,4 +18,4 @@ build/
 conda
 .DS_Store
 .idea/
-db_operate/ces.py
+conf/logisthub

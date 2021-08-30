@@ -14,7 +14,8 @@ import os
 from sshtunnel import SSHTunnelForwarder
 import pymongo
 from urllib import parse
-from time import sleep
+import yaml
+
 
 
 
@@ -23,15 +24,19 @@ class Operate():
         mysql执行器
     '''
     def __init__(self,dbname):
-        self.conf=[]
 
+        # 读取yaml文件
+        yamlinsex = open('./conf/'+Case+'/global_variable.yaml', 'r', encoding='utf-8')
+        data = yaml.load(yamlinsex)
+
+        self.conf=[]
         environment = os.getenv('Environment')
         if environment == "dev":
-            self.conf=DEV
+            self.conf = data['DEV'][0]
         elif environment == "qa":
-            self.conf = QA
+            self.conf = data['QA'][0]
         elif environment == "uat":
-            self.conf = UAT
+            self.conf = data['UAT'][0]
 
         if dbname=='OPS':
             self.server=SSHTunnelForwarder(
@@ -85,7 +90,6 @@ class Operate():
         else:
             self.db.commit()
             return result
-        # return cursor.fetchone()
 
     def execute_mongodb(self,mongodb):
         '''
@@ -94,7 +98,6 @@ class Operate():
         :return:
         '''
         if mongodb.startswith("db"):
-
             data=eval('self.'+mongodb)
             if isinstance(data,int):
                 result=data

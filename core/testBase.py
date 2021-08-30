@@ -12,13 +12,11 @@ import requests
 from json import dumps
 from urllib3.exceptions import InsecureRequestWarning
 from core.logger import Logger
-# from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 logger = Logger().logger
 
 # 禁用安全请求警告
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-
 
 class BaseTest(requests.Session):
 
@@ -190,13 +188,7 @@ class BaseTest(requests.Session):
         logger.info("每次请求耗时(秒):{}".format((t2 - t1) / (THREAD_NUM * ONE_WORKER_NUM)))
         logger.info("每秒承载请求数:{}".format(1 / ((t2 - t1) / (THREAD_NUM * ONE_WORKER_NUM))))
         logger.info("错误数量:{}".format(ERROR_NUM))
-        # print("===============压测结果===================")
-        # print("URL:", url)
-        # print("任务数量:", THREAD_NUM, "*", ONE_WORKER_NUM, "=", THREAD_NUM * ONE_WORKER_NUM)
-        # print("总耗时(秒):", t2 - t1)
-        # print("每次请求耗时(秒):", (t2 - t1) / (THREAD_NUM * ONE_WORKER_NUM))
-        # print("每秒承载请求数:", 1 / ((t2 - t1) / (THREAD_NUM * ONE_WORKER_NUM)))
-        # print("错误数量:", ERROR_NUM)
+
 
 
 
