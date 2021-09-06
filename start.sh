@@ -3,4 +3,4 @@
 export Environment='prod'
 export Case='checkpoint'
 
-/usr/bin/python ./runCase.py
+/usr/bin/python3 ./runCase.py
