@@ -1,0 +1,16 @@
+iot-ops-api_alarms_export:
+  - beginTime: ${day59_before}
+    endTime: ${hour0_before}
+    status: 200
+
+  - beginTime: ${hour24_before}
+    endTime: ${hour0_before}
+    status: 200
+
+  - beginTime: ${hour0_before}
+    endTime: ${hour1_before}
+    status: 200
+
+  - beginTime: ${day61_before}
+    endTime: ${day0_before}
+    status: 400

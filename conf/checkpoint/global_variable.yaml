@@ -100,39 +100,6 @@ UAT:
     IOT_SSH_PORT: '22'
     IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell_web
 
-PROD:
-  - client_secret: 6526ddef-5bbf-44ef-b1a7-1a154da04719
-    url: b2b.digitalshell.com.cn
-    url_direct: shell-sso
-    factoryId: dbbfbe8d-26b8-4ef3-9e90-67db2514b878
-    equipmentId: 4cac1de0-f910-46d7-a200-5e6a24a908fa
-    workshopId:
-    sensorId: DEMO01
-    fuzzyCheckpointName:
-    B2B_DB_NAME: b2bprodnew%readonly
-    B2B_DB_PASSWORD: ywgmS61Mb9GT
-    B2B_DB_IP: b2bprodnew.mysqldb.chinacloudapi.cn
-    B2B_DB: shell_b2b_prod
-    OPS_DB_NAME: iot_ops
-    OPS_DB_PASSWORD:  HamC4ZwtsjBJ
-    OPS_DB_IP: 172.16.0.14
-    OPS_DB: iot_ops
-    OPS_SSH_PKEY: /Users/huanzhang/.ssh/keys_iot_iot_id_rsa.txt
-    OPS_SSH_NAME: docker
-    OPS_SSH_PASSWORD:
-    OPS_SSH_IP: iot-dtu.digitalshell.com.cn
-    OPS_SSH_PORT: '22'
-    IOT_DB_NAME: mongouser
-    IOT_DB_PASSWORD: B2BMongoDB@
-    IOT_DB_IP: 172.16.0.4
-    IOT_DB_PORT: '27017'
-    IOT_DB: iot-prod
-    IOT_SSH_PKEY: /Users/huanzhang/Documents/未命名文件夹/private-key
-    IOT_SSH_NAME: docker
-    IOT_SSH_PASSWORD:
-    IOT_SSH_IP: iot-dtu.digitalshell.com.cn
-    IOT_SSH_PORT: '22'
-    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell_web
 
 
 
