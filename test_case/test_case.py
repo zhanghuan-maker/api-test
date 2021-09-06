@@ -19,6 +19,7 @@ import jsonpath
 import threading
 import time
 import yaml
+from core.time_caculate import *
 
 
 @ddt
@@ -60,6 +61,7 @@ class Test(unittest.TestCase):
         else:
             self.saves_eve[testcase][key] = value
         #打印日志
+
         logger.info('保存 {}=>{} 到局部变量池'.format(key, self.saves_eve[testcase][key]))
 
 
@@ -151,6 +153,11 @@ class Test(unittest.TestCase):
                 actual = str(jsonpath.jsonpath(res.json(), expr)[0])
                 expect = ver.split("=")[1]
                 self.request.assertEquals(actual, expect)
+            elif ver.startswith("$.") and '!~' in ver:
+                expr = ver.split("!~")[0]
+                actual = str(jsonpath.jsonpath(res.json(), expr)[0])
+                expect = ver.split("!~")[1]
+                self.request.assertnotEquals(actual, expect)
             elif ver.startswith("status"):
                 actual = str(res.status_code)
                 expect = ver.split("=")[1]
@@ -229,14 +236,18 @@ class Test(unittest.TestCase):
         res.encoding = 'utf-8'
 
         if saves and res.status_code<=201:
+
             # 遍历saves
             for save in saves.split(";"):
                 # 切割字符串 如 key=$.data
                 if save.split("=")[1].startswith("$."):
                     self.save_data_eve(res.json(), save.split("=")[0], save.split("=")[1],testcase)
                 elif save.split("=")[1].startswith("text"):
-                    self.saves_eve[testcase]={}
+                    self.saves_eve[testcase] = {}
                     self.saves_eve[testcase][save.split("=")[0]] = "Bearer " + str(res.text)
+                else:
+                    self.saves_eve[testcase] = {}
+                    self.saves_eve[testcase][save.split("=")[0]] = self.saves_eve[testcase][save.split("=")[1]]
 
         if verify:
             self.verify_process(verify,testcase)
@@ -254,13 +265,13 @@ class Test(unittest.TestCase):
 
     @data(*api_data)
     @unpack
-    def test_(self,testcase,descrption, url, method, headers, cookies, params, body, file, verify, saves,after_verify, dbtype, dbname, setup_sql, teardown_sql,THREAD_NUM,ONE_WORKER_NUM,LOOP_SLEEP):
+    def test_(self,testcase,descrption, url, method, headers, cookies, params, body, file, verify, saves,after_verify,after_saves, dbtype, dbname, setup_sql, teardown_sql,THREAD_NUM,ONE_WORKER_NUM,LOOP_SLEEP):
 
         # 读取yaml文件
         yamlinsex = open('./conf/'+Case+'/global_variable.yaml', 'r', encoding='utf-8')
         data = yaml.load(yamlinsex)
 
-        DEV,QA,UAT = data['DEV'][0],data['QA'][0],data['UAT'][0]
+        DEV,QA,UAT,PROD = data['DEV'][0],data['QA'][0],data['UAT'][0],data['PROD'][0]
 
         if THREAD_NUM == '':
             THREAD_NUM = 1
@@ -268,6 +279,9 @@ class Test(unittest.TestCase):
             ONE_WORKER_NUM = 1
         if LOOP_SLEEP == '':
             LOOP_SLEEP = 0
+
+        #生成常用时间戳
+        timeCaculateDict=timeCaculate()
 
         #环境配置参数保存至全局变量
         environment = os.getenv('Environment')
@@ -282,16 +296,33 @@ class Test(unittest.TestCase):
         elif environment=="uat":
             for i in range(len(UAT)):
                 self.saves_eve[testcase][list(UAT.keys())[i]]=list(UAT.values())[i]
+        elif environment=="prod":
+            for i in range(len(PROD)):
+                self.saves_eve[testcase][list(PROD.keys())[i]]=list(PROD.values())[i]
 
+        for i in range(len(timeCaculateDict)):
+            self.saves_eve[testcase][list(timeCaculateDict.keys())[i]] = list(timeCaculateDict.values())[i]
 
         logger.info("用例描述====>"+descrption)
+
+        # 判断数据库类型,暂时只有mysql和mongodb
+        setup_sql = self.build_param(setup_sql, testcase)
+        db_connect = None
+        if dbtype.lower() == "mysql":
+            db_connect = Operate(dbname)
+        if db_connect and dbtype.lower() == "mysql":
+            self.execute_sql(db_connect,setup_sql,testcase)
+        if self.mongo_db_connect and dbtype.lower() == "mongodb":
+            self.execute_mongodb(self.mongo_db_connect, setup_sql,testcase)
+
+
         url = self.build_param(url,testcase)
         headers = self.build_param(headers,testcase)
         params = self.build_param(params,testcase)
         body = self.build_param(body,testcase)
         file = self.build_param(file,testcase)
 
-        setup_sql = self.build_param(setup_sql,testcase)
+
         teardown_sql = self.build_param(teardown_sql,testcase)
         params = eval(params) if params else params
         headers = eval(headers) if headers else headers
@@ -303,21 +334,27 @@ class Test(unittest.TestCase):
                 body =json.dumps(body)
         file = eval(file) if file else file
 
-        # 判断数据库类型,暂时只有mysql和mongodb
-        db_connect = None
-        if dbtype.lower() == "mysql":
-            db_connect = Operate(dbname)
-        if db_connect and dbtype.lower() == "mysql":
-            self.execute_sql(db_connect,setup_sql,testcase)
-        if self.mongo_db_connect and dbtype.lower() == "mongodb":
-            self.execute_mongodb(self.mongo_db_connect, setup_sql,testcase)
+
+
 
         self.run_work(THREAD_NUM,ONE_WORKER_NUM,LOOP_SLEEP,url, method, headers, cookies, params, body, file, verify,saves,after_verify,testcase)
+
+
 
         if db_connect and dbtype.lower() =="mysql":
             self.execute_sql(db_connect,teardown_sql,testcase)
         if self.mongo_db_connect and dbtype.lower() =="mongodb":
             self.execute_mongodb(self.mongo_db_connect,teardown_sql,testcase)
+
+        if after_saves and res.status_code<=201:
+            # 遍历saves
+            for save in after_saves.split(";"):
+                # 切割字符串 如 key=$.data
+                if save.split("=")[1].startswith("$."):
+                    self.save_data_eve(res.json(), save.split("=")[0], save.split("=")[1],testcase)
+                elif save.split("=")[1].startswith("text"):
+                    self.saves_eve[testcase]={}
+                    self.saves_eve[testcase][save.split("=")[0]] = "Bearer " + str(res.text)
 
         if after_verify:
             self.verify_process(after_verify,testcase)

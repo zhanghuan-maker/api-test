@@ -16,7 +16,6 @@ PyYAML==3.13
 pyzmq==18.0.1
 query-string==1.0.2
 redis==3.2.1
-request==1.0.2
 requests==2.20.1
 requests-toolbelt==0.9.1
 selenium==3.141.0

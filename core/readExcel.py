@@ -75,7 +75,10 @@ def read_excel(Case=None,sheet_name="Sheet1"):
                     filename.append(file)
 
     #自动生成变量集合
-    main_generate_yaml(Case)
+    for root, dirs, files in os.walk(BASE_PATH + "/conf/" + case1):
+        for dir in dirs:
+            if dir == 'old_yaml':
+                  main_generate_yaml(Case)
 
     # 打开文件
     for i in range(len(case)):

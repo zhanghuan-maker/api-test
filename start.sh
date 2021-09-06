@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-export Environment='uat'
-export Case='shell_web'
+export Environment='prod'
+export Case='checkpoint'
 
-/usr/bin/python3 ./runCase.py
+/usr/bin/python ./runCase.py
 
+gi

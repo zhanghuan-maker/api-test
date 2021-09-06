@@ -112,6 +112,20 @@ class BaseTest(requests.Session):
             logger.error("断言失败,实际值：{} 不等于 预期值：{}".format(actual,expected))
             raise AssertionError
 
+    def assertnotEquals(self,actual,expected):
+        '''
+        断言是否不等于
+        :param actual: 实际值
+        :param expected: 预期值
+        :return:
+        '''
+        try:
+            assert actual != expected
+            logger.info("断言成功,实际值：{} 不等于 预期值：{}".format(actual, expected))
+        except AssertionError as e:
+            logger.error("断言失败,实际值：{} 等于 预期值：{}".format(actual,expected))
+            raise AssertionError
+
     def assertLessThan(self,actual,expected):
         '''
         断言是否小于

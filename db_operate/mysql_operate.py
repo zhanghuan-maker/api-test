@@ -19,6 +19,7 @@ import yaml
 
 
 
+
 class Operate():
     '''
         mysql执行器
@@ -37,6 +38,8 @@ class Operate():
             self.conf = data['QA'][0]
         elif environment == "uat":
             self.conf = data['UAT'][0]
+        elif environment == "prod":
+            self.conf = data['PROD'][0]
 
         if dbname=='OPS':
             self.server=SSHTunnelForwarder(
@@ -99,8 +102,14 @@ class Operate():
         '''
         if mongodb.startswith("db"):
             data=eval('self.'+mongodb)
-            if isinstance(data,int):
-                result=data
+            if type(data)==type({}) or type(data)==type(1):
+                data1=data
             else:
-                result = data[0]
+                for i in data:
+                    data1 = i
+                    break
+            if isinstance(data1,int):
+                result= data1
+            else:
+                result = data1
             return result
