@@ -1,5 +1,4 @@
-report
-logs/
+*.html
 venv/
 
 *.pyc
