@@ -180,6 +180,14 @@ class Test(unittest.TestCase):
             elif ver.startswith("resCount"):
                 expect = ver.split("=")[1]
                 self.request.assertEquals(len(res.json()), int(expect))
+            elif ver.startswith("res.json()") and '=' in ver:
+                expect = ver.split("=")[1]
+                actual = ver.split("=")[0]
+                self.request.assertEqualsValue(eval(actual), expect)
+            elif ver.startswith("res.json()") and '!~' in ver:
+                expect = ver.split("=")[1]
+                actual = ver.split("=")[0]
+                self.request.assertNotEqualsValue(eval(actual), expect)
 
     def ttestonework(self,ONE_WORKER_NUM,LOOP_SLEEP,url, method, headers, cookies, params, body, file, verify, saves,after_verify,ERROR_NUM,testcase):
         '''一次并发处理单个任务'''

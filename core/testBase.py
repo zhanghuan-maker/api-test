@@ -112,6 +112,23 @@ class BaseTest(requests.Session):
             logger.error("断言失败,实际值：{} 不等于 预期值：{}".format(actual,expected))
             raise AssertionError
 
+    def assertEqualsValue(self,actual,expected):
+        '''
+        断言是否等于
+        :param actual: 实际值
+        :param expected: 预期值
+        :return:
+        '''
+        if type(actual)==type([]):
+            pass
+        else:
+            try:
+                assert str(actual) == expected
+                logger.info("断言成功,实际值：{} 等于 预期值：{}".format(str(actual), expected))
+            except AssertionError as e:
+                logger.error("断言失败,实际值：{} 不等于 预期值：{}".format(str(actual),expected))
+                raise AssertionError
+
     def assertnotEquals(self,actual,expected):
         '''
         断言是否不等于
@@ -125,6 +142,23 @@ class BaseTest(requests.Session):
         except AssertionError as e:
             logger.error("断言失败,实际值：{} 等于 预期值：{}".format(actual,expected))
             raise AssertionError
+
+    def assertNotEqualsValue(self,actual,expected):
+        '''
+        断言是否不等于
+        :param actual: 实际值
+        :param expected: 预期值
+        :return:
+        '''
+        if type(actual)==type([]):
+            pass
+        else:
+           try:
+                assert str(actual) != expected
+                logger.info("断言成功,实际值：{} 不等于 预期值：{}".format(str(actual), expected))
+           except AssertionError as e:
+                logger.error("断言失败,实际值：{} 等于 预期值：{}".format(actual,expected))
+                raise AssertionError
 
     def assertLessThan(self,actual,expected):
         '''
