@@ -120,7 +120,7 @@ PROD:
     IOT_DB_IP: 172.16.0.4
     IOT_DB_PORT: '27017'
     IOT_DB: iot-prod
-    IOT_SSH_PKEY: /private-key
+    IOT_SSH_PKEY: /Users/huanzhang/Documents/未命名文件夹/private-key
     IOT_SSH_NAME: docker
     IOT_SSH_PASSWORD:
     IOT_SSH_IP: iot-dtu.digitalshell.com.cn
