@@ -102,8 +102,8 @@ PROD:
     url: b2b.digitalshell.com.cn
     url_direct: shell-sso
     equipmentId: 4cac1de0-f910-46d7-a200-5e6a24a908fa
-    B2B_DB_NAME: b2bprodnew%b2b
-    B2B_DB_PASSWORD: Osot8215i4eQbLI
+    B2B_DB_NAME: b2bprodnew%readonly
+    B2B_DB_PASSWORD: 297readBc0i1St
     B2B_DB_IP: b2bprodnew.mysqldb.chinacloudapi.cn
     B2B_DB: shell_b2b_prod
     OPS_DB_NAME: iot_ops
