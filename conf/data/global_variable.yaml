@@ -27,7 +27,7 @@ DEV:
     IOT_SSH_PASSWORD: ''
     IOT_SSH_IP: iot-dtu-dev.digitalshell.com.cn
     IOT_SSH_PORT: '22'
-    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell_web
+    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell
 
 QA:
   -   client_secret: 4f136a75-0592-4b2e-844b-3116331d9832
@@ -61,7 +61,7 @@ QA:
       IOT_SSH_PASSWORD:
       IOT_SSH_IP: iot-dtu-dev.digitalshell.com.cn
       IOT_SSH_PORT: '22'
-      IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell_web
+      IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell
 
 UAT:
   - client_secret: 8ac575eb-0d5b-4862-bc9b-5ed35fab4cb0
@@ -95,7 +95,7 @@ UAT:
     IOT_SSH_PASSWORD:
     IOT_SSH_IP: iot-dtu-dev.digitalshell.com.cn
     IOT_SSH_PORT: '22'
-    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell_web
+    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell
 
 PROD:
   - client_secret: 6526ddef-5bbf-44ef-b1a7-1a154da04719
@@ -125,7 +125,7 @@ PROD:
     IOT_SSH_PASSWORD:
     IOT_SSH_IP: iot-dtu.digitalshell.com.cn
     IOT_SSH_PORT: '22'
-    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell_web
+    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell
 
 
 

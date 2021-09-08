@@ -1,0 +1,20 @@
+B2B shell web-设备概览-factories:
+  - keyword: ''
+    pageIndex: 1
+    verifyTest: $.totalNumber!~0
+
+  - keyword: ''
+    pageIndex: 2
+    verifyTest: $.totalNumber!~0
+
+  - keyword: ''
+    pageIndex: 3
+    verifyTest: $.totalNumber!~0
+
+  - keyword: 'xinhai'
+    pageIndex: 1
+    verifyTest: $.totalNumber=1
+
+  - keyword: 'xinhai*'
+    pageIndex: 1
+    verifyTest: $.totalNumber=0

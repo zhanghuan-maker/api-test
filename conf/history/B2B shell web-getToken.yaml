@@ -1,0 +1,4 @@
+B2B shell web-getToken:
+- password: '12345678'
+  status: '200'
+  username: huan.zhang@thoughtworks.com
