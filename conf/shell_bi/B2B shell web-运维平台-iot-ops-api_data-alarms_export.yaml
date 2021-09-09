@@ -1,0 +1,6 @@
+B2B shell web-运维平台-iot-ops-api_data-alarms_export:
+  - beginTime: ${day59_before}
+    endTime: ${hour0_before}
+
+  - beginTime: ${hour24_before}
+    endTime: ${hour0_before}
