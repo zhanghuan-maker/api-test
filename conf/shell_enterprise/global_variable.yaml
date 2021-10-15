@@ -1,0 +1,128 @@
+DEV:
+  - username: admin
+    password: 123456
+    authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvM0ZFdjBwdVd0Yk5ueTdseTBNZ21NU0lyWEdzIiwiaWQiOiJjMmEyZmY5Zi0zZmFhLTQ0YzctOTM1My0xODc3MjExMTVhYjQiLCJVU0VSX0lEIjoiZmY0MzY5OWMtYWZlMi00NmZhLTlkNTMtMWQyMjgyMzJlYzA0IiwiRElTVFJJQlVUT1JfSUQiOjEwMCwiRkFDVE9SWV9JRCI6ImQzYTkyNzM0LTU4ZTEtNGJlOC1hOWEyLTUyMWMxNTU0YjVhOCIsIlBVQkxJQ19XRUNIQVRfSUQiOiJ3eDM3M2M0ZDFjYzRkNWViZWIiLCJYQ1hfT1BFTl9JRCI6Im9xcHdnNVJqZGNCMWhJUmptSXFDNEszMWhyRDAiLCJYQ1hfQVBQX0lEIjoid3hkM2ZkYTUwMzcyNTUxMGRlIiwiUFVCTElDX1dFQ0hBVF9VU0VSX05BTUUiOiJnaF9mYjgzMmI5ZTU1MDQiLCJOSUNLX05BTUUiOiLlvKDmrKIiLCJOQU1FIjoi5byg5LiJIiwiSVNfTkFNRV9BTkRfUEhPTkVfU0VUIjp0cnVlLCJzY29wZXMiOlsiQURNSU4iLCJTVVBFUl9VU0VSIl0sIkdFTkVSQVRFX0lOU1RBTlQiOiIyMDIxLTA5LTE0VDA4OjQ1OjA1LjcyNFoiLCJJU19QUklWQUNZX1BPTElDSUVTX0FHUkVFRCI6dHJ1ZSwiaXNzIjoic2hlbGwiLCJpYXQiOjE2MzE2MDkxMDUsImV4cCI6MTYzNDIwMTEwNX0.tKzplyRIyLb_yVX-INYLa6RFBoj5bXQvM2eOkFPi3lpWXCj-_sK4ZEVOvhQZje4hCuuykykJFUrUY0Fd4VCjiA
+    client_secret: b71ba6e5-8e46-458c-9ee1-abe255145ee5
+    url: b2b-dev.digitalshell.com.cn
+    url_direct: shell-sso-dev
+    B2B_DB_NAME: b2bdevnew%b2b
+    B2B_DB_PASSWORD: ywgmS61Mb9GT
+    B2B_DB_IP: b2bdevnew.mysqldb.chinacloudapi.cn
+    B2B_DB: shell_b2b_dev
+    OPS_DB_NAME: iot_ops_dev
+    OPS_DB_PASSWORD: X8rPTxle6J3Y
+    OPS_DB_IP: 172.16.0.14
+    OPS_DB: iot_ops_dev
+    OPS_SSH_PKEY: /Users/huanzhang/.ssh/keys_iot_iot_id_rsa.txt
+    OPS_SSH_NAME: docker
+    OPS_SSH_PASSWORD: ''
+    OPS_SSH_IP: iot-dtu-dev.digitalshell.com.cn
+    OPS_SSH_PORT: '22'
+    IOT_DB_NAME: mongouser
+    IOT_DB_PASSWORD: b2b@mongodev
+    IOT_DB_IP: 172.16.32.8
+    IOT_DB_PORT: '27017'
+    IOT_DB: iot-dev
+    IOT_SSH_PKEY: /Users/huanzhang/Documents/未命名文件夹/private-key
+    IOT_SSH_NAME: docker
+    IOT_SSH_PASSWORD: ''
+    IOT_SSH_IP: iot-dtu-dev.digitalshell.com.cn
+    IOT_SSH_PORT: '22'
+    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell
+
+QA:
+    - username: admin
+      password: 123456
+      client_secret: 4f136a75-0592-4b2e-844b-3116331d9832
+      url: b2b-qa.digitalshell.com.cn
+      url_direct: shell-sso-qa
+      B2B_DB_NAME: b2bdevnew%b2b
+      B2B_DB_PASSWORD: ywgmS61Mb9GT
+      B2B_DB_IP: b2bdevnew.mysqldb.chinacloudapi.cn
+      B2B_DB: shell_b2b_qa
+      OPS_DB_NAME: iot_ops_dev
+      OPS_DB_PASSWORD: X8rPTxle6J3Y
+      OPS_DB_IP: 172.16.0.14
+      OPS_DB: iot_ops_qa
+      OPS_SSH_PKEY: /Users/huanzhang/.ssh/keys_iot_iot_id_rsa.txt
+      OPS_SSH_NAME: docker
+      OPS_SSH_PASSWORD:
+      OPS_SSH_IP: iot-dtu-dev.digitalshell.com.cn
+      OPS_SSH_PORT: '22'
+      IOT_DB_NAME: mongouser
+      IOT_DB_PASSWORD: b2b@mongodev
+      IOT_DB_IP: 172.16.32.8
+      IOT_DB_PORT: '27017'
+      IOT_DB: iot-qa
+      IOT_SSH_PKEY: /Users/huanzhang/Documents/未命名文件夹/private-key
+      IOT_SSH_NAME: docker
+      IOT_SSH_PASSWORD:
+      IOT_SSH_IP: iot-dtu-dev.digitalshell.com.cn
+      IOT_SSH_PORT: '22'
+      IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell
+
+UAT:
+  - username: admin
+    password: 123456
+    client_secret: 8ac575eb-0d5b-4862-bc9b-5ed35fab4cb0
+    url: b2b-uat.digitalshell.com.cn
+    url_direct: shell-sso-uat
+    B2B_DB_NAME: b2bdevnew%b2b
+    B2B_DB_PASSWORD: ywgmS61Mb9GT
+    B2B_DB_IP: b2bdevnew.mysqldb.chinacloudapi.cn
+    B2B_DB: shell_b2b_uat
+    OPS_DB_NAME: iot_ops_dev
+    OPS_DB_PASSWORD: X8rPTxle6J3Y
+    OPS_DB_IP: 172.16.0.14
+    OPS_DB: iot_ops_uat
+    OPS_SSH_PKEY: /Users/huanzhang/.ssh/keys_iot_iot_id_rsa.txt
+    OPS_SSH_NAME: docker
+    OPS_SSH_PASSWORD:
+    OPS_SSH_IP: iot-dtu-dev.digitalshell.com.cn
+    OPS_SSH_PORT: '22'
+    IOT_DB_NAME: mongouser
+    IOT_DB_PASSWORD: b2b@mongodev
+    IOT_DB_IP: 172.16.32.8
+    IOT_DB_PORT: '27017'
+    IOT_DB: iot-uat
+    IOT_SSH_PKEY: /Users/huanzhang/Documents/未命名文件夹/private-key
+    IOT_SSH_NAME: docker
+    IOT_SSH_PASSWORD:
+    IOT_SSH_IP: iot-dtu-dev.digitalshell.com.cn
+    IOT_SSH_PORT: '22'
+    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell
+
+PROD:
+  - username: xcli@thoughtworks.com
+    password: Xcli@thoughtworks.com1
+    authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvNkFKLTVrUzAtaDR3WTU2c0xZRTFMX21sa3QwIiwiaWQiOiI2M2I3YTNiZC00YTM2LTQ4ZmYtOWU4Yi1mMWM1YTQ1ODI5YzciLCJVU0VSX0lEIjoiYWJjMjY5MzQtZTY2NS00MzBhLTg2YjgtZDBhMmQyN2ViZDIyIiwiRElTVFJJQlVUT1JfSUQiOjEzNiwiRkFDVE9SWV9JRCI6ImQzYTkyNzM0LTU4ZTEtNGJlOC1hOWEyLTUyMWMxNTU0YjRhOCIsIlBVQkxJQ19XRUNIQVRfSUQiOiJ3eGY3NjE3Nzk4YWI5NWUyZjkiLCJYQ1hfT1BFTl9JRCI6Im9Va08tNGxoUjNfS3JvTVVvUHpBVUFBaUtBQzAiLCJYQ1hfQVBQX0lEIjoid3g5ZTQ0MTU5MWJhN2ExYjE2IiwiUFVCTElDX1dFQ0hBVF9VU0VSX05BTUUiOiJnaF83NmUyMmYxZTE0MjQiLCJOSUNLX05BTUUiOiJVTktOT1dOX05JQ0tOQU1FIiwiTkFNRSI6IuW8oOasonR35rWL6K-VIiwiSVNfTkFNRV9BTkRfUEhPTkVfU0VUIjp0cnVlLCJzY29wZXMiOlsiQURNSU4iXSwiR0VORVJBVEVfSU5TVEFOVCI6IjIwMjEtMDktMTRUMDg6MTQ6MjUuNjE2WiIsIklTX1BSSVZBQ1lfUE9MSUNJRVNfQUdSRUVEIjp0cnVlLCJpc3MiOiJzaGVsbCIsImlhdCI6MTYzMTYwNzI2NSwiZXhwIjoxNjMxNjE0NDY1fQ.R3QmcCRnCj5nw5aFSnR-G_9FKEZRoyanZpIY9CuWFtbhQnG5kKhjC5UFqfn8GcJUH1YwZaZ9nlQjoNEQKc3lZA
+    client_secret: 6526ddef-5bbf-44ef-b1a7-1a154da04719
+    url: b2b.digitalshell.com.cn
+    url_direct: shell-sso
+    B2B_DB_NAME: b2bprodnew%readonly
+    B2B_DB_PASSWORD: 297readBc0i1St
+    B2B_DB_IP: b2bprodnew.mysqldb.chinacloudapi.cn
+    B2B_DB: shell_b2b_prod
+    OPS_DB_NAME: iot_ops
+    OPS_DB_PASSWORD:  HamC4ZwtsjBJ
+    OPS_DB_IP: 172.16.0.14
+    OPS_DB: iot_ops
+    OPS_SSH_PKEY: /Users/huanzhang/.ssh/keys_iot_iot_id_rsa.txt
+    OPS_SSH_NAME: docker
+    OPS_SSH_PASSWORD:
+    OPS_SSH_IP: iot-dtu.digitalshell.com.cn
+    OPS_SSH_PORT: '22'
+    IOT_DB_NAME: mongouser
+    IOT_DB_PASSWORD: B2BMongoDB@
+    IOT_DB_IP: 172.16.0.4
+    IOT_DB_PORT: '27017'
+    IOT_DB: iot-prod
+    IOT_SSH_PKEY: /Users/huanzhang/Documents/未命名文件夹/private-key
+    IOT_SSH_NAME: docker
+    IOT_SSH_PASSWORD:
+    IOT_SSH_IP: iot-dtu.digitalshell.com.cn
+    IOT_SSH_PORT: '22'
+    IMAGE_PATH: /Users/huanzhang/ApiTestFrameWork-master/conf/shell
+
+
+

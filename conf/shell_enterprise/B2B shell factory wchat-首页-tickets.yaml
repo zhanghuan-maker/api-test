@@ -1,0 +1,9 @@
+B2B shell factory wchat-首页-tickets:
+  - pageIndex: 1
+    pageSize: 5
+
+  - pageIndex: 2
+    pageSize: 5
+
+  - pageIndex: 3
+    pageSize: 5

@@ -1,0 +1,35 @@
+B2B shell web-设备概览-factories:
+  - keyword: ''
+    pageIndex: 1
+    requireSensor: false
+    verifyTest: $.totalNumber!~0
+
+  - keyword: ''
+    pageIndex: 1
+    requireSensor: true
+    verifyTest: $.totalNumber!~0
+
+  - keyword: ''
+    pageIndex: 2
+    requireSensor: true
+    verifyTest: $.totalNumber!~0
+
+  - keyword: ''
+    pageIndex: 2
+    requireSensor: false
+    verifyTest: $.totalNumber!~0
+
+  - keyword: ''
+    pageIndex: 3
+    requireSensor: false
+    verifyTest: $.totalNumber!~0
+
+  - keyword: 'xinhai'
+    pageIndex: 1
+    requireSensor: false
+    verifyTest: $.totalNumber=1
+
+  - keyword: 'xinhai*'
+    pageIndex: 1
+    requireSensor: false
+    verifyTest: $.totalNumber=0
